@@ -26,18 +26,6 @@ export default {
 }
 </script>
 
-<style scoped>
-    .s2{
-        font-size: 2rem;
-    }
-    .btn-blue{
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 3rem;
-      background-color: rgba(0, 0, 255, 0.44);
-      color: white;
-      font-size: 1.2rem;
-    }
+<style lang='scss' scoped>
+    @import url(../assets/css/s2.scss);
 </style>
