@@ -17,6 +17,7 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <button-counter></button-counter>
     <button class="btn-blue" v-on:click="spaJump">启动单页面跳转</button>
   </div>
 </template>
