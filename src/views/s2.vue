@@ -2,6 +2,7 @@
     <div class="s2">
         <span>{{msg}}</span>
         <div>
+            <button-counter></button-counter>
             <button class="btn-blue" @click="backIndex">回到首页</button>
         </div>
     </div>

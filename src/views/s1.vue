@@ -2,6 +2,7 @@
     <div class="s1">
         <span>{{msg}}</span>
         <div>
+            <button-counter></button-counter>
             <button class="btn-blue" @click="jumpS2">Go To S2</button>
         </div>
     </div>
