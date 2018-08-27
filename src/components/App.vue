@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <img src="../assets/images/logo.png"/>
+        <!-- <img src="../assets/images/logo.png"/> -->
         <!-- 使用动态的 transition name -->
         <transition :name="transitionName">
             <router-view class="child-view">
