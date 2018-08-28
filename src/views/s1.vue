@@ -12,12 +12,26 @@
             <li v-show="vShowBoolean">是否展示v-show</li>
         </ul>
         <ul>
-            <li v-for="item in items">
-                {{ item.message }}
+            <todo-list v-for="item in items" v-bind:todo="item" v-bind:key="item.id">
+            </todo-list>
+        </ul>
+        <ul>
+            <li>
+                <input v-model="inputValue" />
+            </li>
+            <li>
+                被逆序后的结果：{{ reverseValue }}
+            </li>
+            <li>
+                Watch - 被逆序后的结果：{{ watchValue }}
             </li>
         </ul>
-
-
+        <ul>
+            <li>属性和计算属性的区别：</li>
+            <li>{{ propTime }}</li>
+            <li>{{ computedTime }}</li>
+        </ul>
+        
         <button-counter></button-counter>
         <button class="btn-blue" @click="jumpS2">Go To S2</button>
     </div>
@@ -29,16 +43,33 @@ export default {
     name: 's1',
     data () {
         return {
+            propTime: Date.now(),
+            inputValue: "",
+            watchValue: "",
             msg: '条件渲染',
             vShowBoolean: true,
             items: [
-                { message: "This is one List" },
-                { message: "This is one List" },
-                { message: "This is one List" },
-                { message: "This is one List" }
+                { id: 0, text: "This is one List" },
+                { id: 1, text: "This is one List" },
+                { id: 2, text: "This is one List" },
+                { id: 3, text: "This is one List" }
             ]
         }
     },
+    computed: {
+        computedTime () {
+            return Date.now();
+        },
+        reverseValue () {
+            return this.inputValue.split('').reverse().join('');
+        }
+    },
+    watch: {
+        reverseValue () {
+            this.watchValue = this.inputValue;
+        }
+    },
+
     methods: {
         jumpS2() {
             this.$router.push({
