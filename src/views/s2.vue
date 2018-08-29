@@ -1,10 +1,12 @@
 <template>
     <div class="s2">
-        <span>{{msg}}</span>
-        <div>
-            <button-counter></button-counter>
-            <button class="btn-blue" @click="backIndex">回到首页</button>
-        </div>
+        <span>{{title}}</span>
+        <div class="basic" v-bind:class="arrayClass"></div>
+        <div class="basic" v-bind:class="objectClass"></div>
+        <div class="basic" v-bind:class="[activeClass, chooseClass]"></div>
+        
+        <button-counter></button-counter>        
+        <button class="btn-blue" @click="goTodoList">跳转TodoList</button>
     </div>
 </template>
 
@@ -13,13 +15,28 @@ export default {
     name: 's2',
     data () {
         return {
-            msg: 'This is s2.'
+            title: 'Class与Style绑定',
+            showObjStyle1: true,
+            showObjStyle2: false,
+            activeClass: 'on-cur',
+            chooseClass: 'on-choose'
+        }
+    },
+    computed: {
+        arrayClass() {
+            return ['array1', 'array2'];
+        },
+        objectClass() {
+            return {
+                object1: this.showObjStyle1,
+                object2: this.showObjStyle2
+            }
         }
     },
     methods: {
-      backIndex () {
+      goTodoList () {
         this.$router.push({
-          name: 'HelloWorld',
+          name: 'todo',
           param: 'key=1'
         });
       }

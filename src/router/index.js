@@ -5,6 +5,7 @@ import HelloWorld from '@/views/HelloWorld'
 // import s2 from '@/views/s2'
 const s1 = () => import('@/views/s1')
 const s2 = () => import('@/views/s2')
+const todo = () => import('@/views/todo')
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/s2',
       name: 's2',
       component: s2
+    },
+    {
+      path: '/todo',
+      name: 'todo',
+      component: todo
     }
   ]
 })
