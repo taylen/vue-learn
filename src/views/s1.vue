@@ -12,7 +12,7 @@
             <li v-show="vShowBoolean">是否展示v-show</li>
         </ul>
         <ul>
-            <todo-list v-for="item in items" v-bind:todo="item" v-bind:key="item.id">
+            <todo-list v-for="item in items" v-bind:todo="item" :key="item.id">
             </todo-list>
         </ul>
         <ul>
@@ -49,10 +49,10 @@ export default {
             msg: '条件渲染',
             vShowBoolean: true,
             items: [
-                { id: 0, text: "This is one List" },
-                { id: 1, text: "This is one List" },
-                { id: 2, text: "This is one List" },
-                { id: 3, text: "This is one List" }
+                { id: 0, text: "This is one List 0" },
+                { text: "This is one List 1" },
+                { id: 1, text: "This is one List 2" },
+                { id: 3, text: "This is one List 3" }
             ]
         }
     },
@@ -77,6 +77,20 @@ export default {
                 param: 'key=1'
             });
         }
+    },
+
+    mounted() {
+        const self = this;
+        console.log(1);
+        setTimeout(function() {
+            console.log(2);
+            self.items = [
+                { id: 2, text: "This is one List 0" },
+                { text: "This is one List Two" },
+                { id: 1, text: "This is one List One" },
+                { id: 3, text: "This is one List 3" }
+            ];
+        }, 3000);
     }
 }
 </script>
